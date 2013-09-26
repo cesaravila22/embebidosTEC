@@ -1,0 +1,46 @@
+++ A continuación se muestran los pasos realizados a lo largo de la tarea ++
+
+++ Para correr el pipeline de Gstreamer en la PC ++
+sudo add-apt-repository ppa:gstreamer-developers/ppa
+sudo apt-get update
+sudo apt-get install gstreamer0.10*
+sudo apt-get install gstreamer-tools
+
+++ Para reproducir mp3 con gst-launch ++
+gst-launch filesrc location=file.mp3 ! mad ! alsasink
+
+++ Para reproducir ogg con gst-launch se puede utilizar alguno de los sgts ++
+gst-launch filesrc location=file.ogg ! decodebin ! audioconvert ! audioresample ! alsasink
+gst-launch filesrc location=file.ogg ! oggdemux ! vorbisdec ! audioconvert ! autoaudiosink
+
+++ Se realizaron 2 archivos en C ++
+++ reproductor.c ejecuta el pipeline para .ogg ++
+++ repmp3.c ejecuta el pipeline para .mp3 ++
+++ el makefile compila solo para repmp3 ++
+++ Si se desea compilar para la PC ++
+make x86
+++ Si se desea compilar para la BeagleBoard ++
+make BB-xM
+++ Si se desea compilar para ambas ++
+make all
+
+++ Para la cross-compilación de las dependecias de mad y mad ++
+++ Para dependencias de mad ++
+++ Se ejecutan los sgts comandos para ambos ++
+++ libmad ++
+++ libid3tag ++
+source /home/cesar/ti-sdk-beagleboard-06.00.00.00/linux-devkit/environment-setup
+./configure --host=arm-none-linux --enable-shared --prefix=/home/cesar/ti-sdk-beagleboard-06.00.00.00/targetNFS/usr/
+sudo su
+source /home/cesar/ti-sdk-beagleboard-06.00.00.00/linux-devkit/environment-setup
+make install
+++ Para gst-plugins-ugly ++
+++ Paquete de plugins que contiene a mad ++
+source /home/cesar/ti-sdk-beagleboard-06.00.00.00/linux-devkit/environment-setup
+./configure --host=arm-none-linux --enable-shared --prefix=/home/cesar/ti-sdk-beagleboard-06.00.00.00/targetNFS/usr/ CFLAGS='-I/home/cesar/ti-sdk-beagleboard-06.00.00.00/targetNFS/usr/include' LIBS='-L/home/cesar/ti-sdk-beagleboard-06.00.00.00/targetNFS/usr/lib'
+sudo su
+source /home/cesar/ti-sdk-beagleboard-06.00.00.00/linux-devkit/environment-setup
+make install
+
+++ Finalmente para ejecutar el programa tanto en la Beagle como en la PC ++
+./repmp3 file.mp3
