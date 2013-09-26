@@ -1,4 +1,8 @@
+//Pipeline para enviar stream de audio desde el host
+
+gst-launch filesrc location=file.mp3 ! mad ! audioconvert ! audio/x-raw-int,channels=1,depth=16,width=16,\rate=44100 ! rtpL16pay  ! udpsink host=<IP_PC> port=5000
+
 //Este pipeline permite reproducir un archivo .mp3 en la PC como target, dicho archivo es proveniente de la BB-xM, que sería el host
 
-gst-launch udpsrc port=5000 caps= "application/x-rtp, media=(string)audio, clock-rate=44100, width=16, height=16, \encoding-name=(string)L16,encoding-params=(string)1, channels=(int)1, channel-position=(int)1, payload=(int)96" ! \gstrtpjitterbuffer do-lost=true ! rtpL16depay ! audioconvert ! alsasink sync=false
+gst-launch udpsrc port=5000 caps="application/x-rtp, media=(string)audio, clock-rate=44100, width=16, height=16, \encoding-name=(string)L16,encoding-params=(string)1, channels=(int)1, channel-position=(int)1, payload=(int)96" ! \gstrtpjitterbuffer do-lost=true ! rtpL16depay ! audioconvert ! alsasink sync=false
 
