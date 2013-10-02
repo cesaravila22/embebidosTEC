@@ -62,7 +62,7 @@ int main (int   argc, char *argv[]) {
 
   /* we set the input filename to the source element */
   g_object_set (G_OBJECT (source), "location", argv[1], NULL);
-  filter_caps = gst_caps_from_string("audio/x-raw-int,channels=1,depth=16,width=16,\\rate=44100");
+  filter_caps = gst_caps_from_string("audio/x-raw-int,channels=1,depth=16,width=16,rate=44100");
   g_object_set (G_OBJECT (params), "caps", filter_caps, NULL);
   g_object_set (G_OBJECT (udp), "host", argv[2], NULL);
   g_object_set (G_OBJECT (udp), "port", 5000 , NULL);
