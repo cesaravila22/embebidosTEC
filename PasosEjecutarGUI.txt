@@ -1,0 +1,4 @@
+// Para evitar que se inicie matrix-gui
+
+cd ti-sdk-beagleboard-06.00.00.00/targetNFS/etc/rc5.d
+mv S97matrix-gui-2.0 K97matrix-gui-2.0
