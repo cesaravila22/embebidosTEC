@@ -35,3 +35,14 @@ void MainWindow::on_pushButton_2_clicked()
 {
     gstrep->detener();
 }
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    this->close();
+}
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    QString filename = QFileDialog::getOpenFileName(this,tr("Look for music"),"/home/cesar/Desktop",tr("MP3 file (*.mp3)"));
+    ui->lineEdit->setText(filename);
+}

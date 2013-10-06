@@ -76,7 +76,7 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-ZruieEEuWT,guid=8fc689fbdf8990b995e50bac525047f4</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-wo7GUo4j1S,guid=32bb979a0094b82bc42478a15251783c</value>
     <value type="QString">DEFAULTS_PATH=/usr/share/gconf/gnome.default.path</value>
     <value type="QString">DESKTOP_SESSION=gnome</value>
     <value type="QString">DISPLAY=:0.0</value>
@@ -84,8 +84,8 @@
     <value type="QString">GDM_KEYBOARD_LAYOUT=us</value>
     <value type="QString">GDM_LANG=en_US.utf8</value>
     <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
-    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-GkvrID</value>
-    <value type="QString">GNOME_KEYRING_PID=1325</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-UrTONb</value>
+    <value type="QString">GNOME_KEYRING_PID=1326</value>
     <value type="QString">GTK_MODULES=canberra-gtk-module</value>
     <value type="QString">HOME=/home/cesar</value>
     <value type="QString">LANG=en_US.utf8</value>
@@ -97,17 +97,17 @@
     <value type="QString">PWD=/home/cesar</value>
     <value type="QString">QMAKESPEC=/home/cesar/ti-sdk-beagleboard-06.00.00.00/linux-devkit/arm-arago-linux-gnueabi/usr/share/qtopia/mkspecs/linux-g++</value>
     <value type="QString">QTDIR=/usr/share/qt4</value>
-    <value type="QString">SESSION_MANAGER=local/Zombie:@/tmp/.ICE-unix/1343,unix/Zombie:/tmp/.ICE-unix/1343</value>
+    <value type="QString">SESSION_MANAGER=local/Zombie:@/tmp/.ICE-unix/1344,unix/Zombie:/tmp/.ICE-unix/1344</value>
     <value type="QString">SHELL=/bin/bash</value>
     <value type="QString">SPEECHD_PORT=7560</value>
-    <value type="QString">SSH_AGENT_PID=1377</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-GkvrID/ssh</value>
+    <value type="QString">SSH_AGENT_PID=1378</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-UrTONb/ssh</value>
     <value type="QString">USER=cesar</value>
     <value type="QString">USERNAME=cesar</value>
-    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-cesar-5rYHPa/database</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-cesar-B9HWd7/database</value>
     <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-gnome:/etc/xdg</value>
     <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
-    <value type="QString">XDG_SESSION_COOKIE=5fb83b15fc6b5f99d222d6d0522e7691-1380993011.641187-857247494</value>
+    <value type="QString">XDG_SESSION_COOKIE=5fb83b15fc6b5f99d222d6d0522e7691-1381070908.234325-1274718553</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
     <value type="QString">/home/cesar/Desktop/Qtreproductor/Qtreproductor.pro</value>
@@ -126,7 +126,7 @@
   <valuemap type="QVariantMap">
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-ZruieEEuWT,guid=8fc689fbdf8990b995e50bac525047f4</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-wo7GUo4j1S,guid=32bb979a0094b82bc42478a15251783c</value>
     <value type="QString">DEFAULTS_PATH=/usr/share/gconf/gnome.default.path</value>
     <value type="QString">DESKTOP_SESSION=gnome</value>
     <value type="QString">DISPLAY=:0.0</value>
@@ -134,8 +134,8 @@
     <value type="QString">GDM_KEYBOARD_LAYOUT=us</value>
     <value type="QString">GDM_LANG=en_US.utf8</value>
     <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
-    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-GkvrID</value>
-    <value type="QString">GNOME_KEYRING_PID=1325</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-UrTONb</value>
+    <value type="QString">GNOME_KEYRING_PID=1326</value>
     <value type="QString">GTK_MODULES=canberra-gtk-module</value>
     <value type="QString">HOME=/home/cesar</value>
     <value type="QString">LANG=en_US.utf8</value>
@@ -147,17 +147,17 @@
     <value type="QString">PWD=/home/cesar</value>
     <value type="QString">QMAKESPEC=/home/cesar/ti-sdk-beagleboard-06.00.00.00/linux-devkit/arm-arago-linux-gnueabi/usr/share/qtopia/mkspecs/linux-g++</value>
     <value type="QString">QTDIR=/usr/share/qt4</value>
-    <value type="QString">SESSION_MANAGER=local/Zombie:@/tmp/.ICE-unix/1343,unix/Zombie:/tmp/.ICE-unix/1343</value>
+    <value type="QString">SESSION_MANAGER=local/Zombie:@/tmp/.ICE-unix/1344,unix/Zombie:/tmp/.ICE-unix/1344</value>
     <value type="QString">SHELL=/bin/bash</value>
     <value type="QString">SPEECHD_PORT=7560</value>
-    <value type="QString">SSH_AGENT_PID=1377</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-GkvrID/ssh</value>
+    <value type="QString">SSH_AGENT_PID=1378</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-UrTONb/ssh</value>
     <value type="QString">USER=cesar</value>
     <value type="QString">USERNAME=cesar</value>
-    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-cesar-5rYHPa/database</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm/auth-for-cesar-B9HWd7/database</value>
     <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-gnome:/etc/xdg</value>
     <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/</value>
-    <value type="QString">XDG_SESSION_COOKIE=5fb83b15fc6b5f99d222d6d0522e7691-1380993011.641187-857247494</value>
+    <value type="QString">XDG_SESSION_COOKIE=5fb83b15fc6b5f99d222d6d0522e7691-1381070908.234325-1274718553</value>
    </valuelist>
    <value key="abstractProcess.IgnoreReturnValue" type="bool">false</value>
    <valuelist key="abstractProcess.arguments" type="QVariantList">
