@@ -5,9 +5,11 @@ TARGET = Qtreproductor
 TEMPLATE = app
 SOURCES += main.cpp \
     mainwindow.cpp \
-    gstmp3.cpp
+    gstmp3.cpp \
+    gstserver.cpp
 HEADERS += mainwindow.h \
-    gstmp3.h
+    gstmp3.h \
+    gstserver.h
 FORMS += mainwindow.ui
 CONFIG += console
 CONFIG -= app_bundle
