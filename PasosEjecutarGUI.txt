@@ -1,4 +1,17 @@
 // Para evitar que se inicie matrix-gui
 
-cd ti-sdk-beagleboard-06.00.00.00/targetNFS/etc/rc5.d
+// Evitar que inicie matrix-gui
+cd /home/cesar/ti-sdk-beagleboard-06.00.00.00/targetNFS/etc/rc5.d
 mv S97matrix-gui-2.0 K97matrix-gui-2.0
+
+// Copiar archivos
+reproductor.sh a /home/cesar/ti-sdk-beagleboard-06.00.00.00/targetNFS/etc/init.d
+Qtreproductor a /home/cesar/ti-sdk-beagleboard-06.00.00.00/targetNFS/usr/bin
+
+// Darle permisos a reproductor.sh
+cd /home/cesar/ti-sdk-beagleboard-06.00.00.00/targetNFS/etc/init.d
+chmod +x reproductor.sh
+
+// Crear script (Se hace desde la beagle)
+cd /home/cesar/ti-sdk-beagleboard-06.00.00.00/targetNFS/etc/rc5.d
+ln -s /home/cesar/ti-sdk-beagleboard-06.00.00.00/targetNFS/etc/init.d/reproductor.sh S97reproductor
