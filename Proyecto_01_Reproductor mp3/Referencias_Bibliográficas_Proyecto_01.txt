@@ -1,0 +1,5 @@
+-http://gstreamer.freedesktop.org/features/index.html
+-http://www.espaciolinux.com/2012/07/gstreamer-super-tutorial/
+-http://processors.wiki.ti.com/index.php/Example_GStreamer_Pipelines
+-
+-
