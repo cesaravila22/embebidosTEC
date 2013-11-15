@@ -8,9 +8,47 @@
 using namespace std;
 using namespace cv;
 
+int reproducir_alarma(GstElement *pipeline){
+    gst_element_set_state (pipeline, GST_STATE_PLAYING);
+    return 0;
+}
+
+int detener_alarma(GstElement *pipeline){
+    gst_element_set_state (pipeline, GST_STATE_NULL);
+    return 0;
+}
+
 int main (int argc, char * const argv[]){
+
+	GstElement *pipeline, *source, *madmp3, *sink;
+    GstBus *bus;
+    guint bus_watch_id;
+
+    /* Initialisation */
+    gst_init (NULL, NULL);
+
+    /* Create gstreamer elements */
+    pipeline = gst_pipeline_new ("audio-player");
+    source = gst_element_factory_make ("filesrc", "file-source");
+    madmp3  = gst_element_factory_make ("mad", "mp3-plugin");
+    sink = gst_element_factory_make ("alsasink", "audio-output");
+
+    if (!pipeline || !source || !madmp3 || !sink) {
+          g_printerr ("One element could not be created. Exiting.\n");
+      return -1;
+    }
+
+    /* Set up the pipeline */
+    /* we set the input filename to the source element */
+    g_object_set (G_OBJECT (source), "location", "Sirena-Policia.mp3", NULL);
+    /* we add all elements into the pipeline */
+    gst_bin_add_many (GST_BIN (pipeline), source, madmp3, sink, NULL);
+    /* we link the elements together */
+    gst_element_link_many (source, madmp3, sink, NULL);
 	
     const int DELAY = 100; // mseconds
+	
+	bool alarm_activated = false;
     
     // create all necessary instances
     CvCapture * camera = cvCaptureFromCAM(1);
@@ -27,9 +65,10 @@ int main (int argc, char * const argv[]){
     Mat d1, d2, result;
     int window = 200;
     bool movement;
-    while (true){
-	//imshow("Motion1", current_frame);	
-	//imshow("Motion2", next_frame);
+    while (true)
+    {
+        //imshow("Motion1", current_frame);
+        //imshow("Motion2", next_frame);
         
         movement = false;
         imshow("Motion1", next_frame);
@@ -51,70 +90,35 @@ int main (int argc, char * const argv[]){
                 }
         
         if(movement==true){
-	    cout<<"Movement!\n";
-	    GMainLoop *loop;
-
-        GstElement *pipeline, *source, *madmp3, *sink;
-  	    GstBus *bus;
-  	    guint bus_watch_id;
-
-  	    /* Initialisation */
-  	    gst_init (NULL, NULL);
-
-  	    loop = g_main_loop_new (NULL, FALSE);
-
-  	    /* Create gstreamer elements */
-  	    pipeline = gst_pipeline_new ("audio-player");
-  	    source = gst_element_factory_make ("filesrc", "file-source");
-  	    madmp3  = gst_element_factory_make ("mad", "mp3-plugin");
-  	    sink = gst_element_factory_make ("alsasink", "audio-output");
-
-  	    if (!pipeline || !source || !madmp3 || !sink) {
-    	      g_printerr ("One element could not be created. Exiting.\n");
-   	      return -1;
-  	    }
-
-  	    /* Set up the pipeline */
-
-  	    /* we set the input filename to the source element */
-  	    g_object_set (G_OBJECT (source), "location", "Sirena-Policia.mp3", NULL);
-
-  	    /* we add all elements into the pipeline */
-  	    gst_bin_add_many (GST_BIN (pipeline), source, madmp3, sink, NULL);
-
-  	    /* we link the elements together */
-  	    gst_element_link_many (source, madmp3, sink, NULL);
-
-  	    /* Set the pipeline to "playing" state*/
-  	    gst_element_set_state (pipeline, GST_STATE_PLAYING);
-
-  	    /* Iterate */
-  	    g_main_loop_run (loop);
-
-  	    /* Out of the main loop, clean up nicely */
-  	    gst_element_set_state (pipeline, GST_STATE_NULL);
-
-  	    gst_object_unref (GST_OBJECT (pipeline));
-  	    g_main_loop_unref (loop);
-	
+			if (alarm_activated){
+				cout<<"Movement!\n";
+			} else{
+				alarm_activated = true;
+				cout<<"Movement!\n";
+				reproducir_alarma(pipeline);
+			}
         }
 
         //imshow("Motion", result);
         
         next_frame.copyTo(current_frame);
 
-	// semi delay and quit when press Q/q
+        // semi delay and quit when press Q/q
         int key = cvWaitKey (DELAY);
-        if (key == 'q' || key == 'Q')
+        if (key == 'q' || key == 'Q'){
             break;
+		}
+		if (key == 's' || key == 'S'){
+            detener_alarma(pipeline);
+			alarm_activated = false;
+		}
 
-	//cvReleaseCapture(&camera);
-	//camera = cvCaptureFromCAM(0);
+        //cvReleaseCapture(&camera);
+        //camera = cvCaptureFromCAM(0);
         
         // get image from webcam
         next_frame_color = cvQueryFrame(camera);
         cvtColor(next_frame_color, next_frame, CV_RGB2GRAY);
     }
-    
 	return 0;
 }
