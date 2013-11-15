@@ -1,0 +1,5 @@
+export DISPLAY=:0.0
+amixer sset 'DAC1 Digital Fine' 40
+amixer sset 'Headset' 2
+amixer sset 'HeadsetL Mixer AudioL1' on
+amixer sset 'HeadsetR Mixer AudioR1' on
